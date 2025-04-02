@@ -10,7 +10,7 @@
     <a href="{% url 'add_job' %}">Add Job</a>
     <ul>
         {% for job in jobs %}
-        <li>{{ jon.job_title }} at {{ job.company_name }} - {{ job.status }}</li>
+        <li>{{ job.job_title }} at {{ job.company_name }} - {{ job.status }}</li>
         {% endfor %}
     </ul>
 </body>
