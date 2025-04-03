@@ -76,19 +76,18 @@ WSGI_APPLICATION = 'Job_Tracker.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 import os
-import dj_database_url
-from django.core.exceptions import ImproperlyConfigured
+from pathlib import Path
 
-# Get the DATABASE_URL from environment variables
-DATABASE_URL = os.getenv("DATABASE_URL")
+# Base directory
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=False)
+# SQLite Database Configuration
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    raise ImproperlyConfigured("DATABASE_URL environment variable is not set.")
-
+}
 
 
 # Password validation
