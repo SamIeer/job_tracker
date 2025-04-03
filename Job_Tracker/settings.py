@@ -79,6 +79,7 @@ import os
 import dj_database_url
 from django.core.exceptions import ImproperlyConfigured
 
+# Get the DATABASE_URL from environment variables
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
@@ -87,6 +88,7 @@ if DATABASE_URL:
     }
 else:
     raise ImproperlyConfigured("DATABASE_URL environment variable is not set.")
+
 
 
 # Password validation

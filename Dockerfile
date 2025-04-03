@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /job_tracker
 
 # Copy project files
 COPY . .
